@@ -2,7 +2,7 @@
 
 # Airbnb JavaScript Guida allo Stile() {
 
-*Un approccio piu o meno ragionevole a Javascript*
+*Un approccio più o meno ragionevole a Javascript*
 
 
 ## Tavola dei contenuti
@@ -12,7 +12,7 @@
   1. [Arrays](#arrays)
   1. [Stringhe](#stringhe)
   1. [Funzioni](#funzioni)
-  1. [Proprieta'](#proprieta)
+  1. [Proprietà](#proprietà)
   1. [Variabili](#variabili)
   1. [Hoisting](#hoisting)
   1. [Operatori di Confronto ed Ugualianza](#confronti-operatori-ugualianza)
@@ -20,7 +20,7 @@
   1. [Commenti](#commenti)
   1. [Spazi bianchi](#spazi-bianchi)
   1. [Virgole](#virgole)
-  1. [Punti e virgola](#punti-virgole)
+  1. [Punti e Virgole](#punti-virgole)
   1. [Conversioni di Tipo e Coercizioni](#conversioni--tipo--coercizione)
   1. [Convenzioni sui Nomi](#convenzioni--nomi)
   1. [Accessors](#accessors)
@@ -28,11 +28,11 @@
   1. [Eventi](#eventi)
   1. [Moduli](#moduli)
   1. [jQuery](#jquery)
-  1. [Compatibilita' ECMAScript 5](#compatibilita-ecmascript-5)
-  1. [Testaggio](#testaggio)
+  1. [Compatibilità ECMAScript 5](#compatibilità-ecmascript-5)
+  1. [Testing](#testing)
   1. [Performance](#performance)
   1. [Risorse](#risorse)
-  1. [In Piena Liberta'](#piena-liberta)
+  1. [In Piena Libertà](#piena-libertà)
   1. [Traduzioni](#traduzioni)
   1. [Guida allo Stile di Javascript](#guida-allo-stile-di-javascript)
   1. [Parlaci di Javascript](#parlaci-javascript)
@@ -41,7 +41,7 @@
 
 ## Tipi
 
-  - **Primitivi**: Quando accedi un tipo primitivo lavori direttamente sul suo valore.
+  - **Primitivi**: Quando accedi ad un tipo primitivo lavori direttamente sul suo valore.
 
     + `string`
     + `number`
@@ -76,7 +76,7 @@
 
 ## Oggetti
 
-  - Usa la sintassi letterale per la creazioni di oggetti.
+  - Usa la sintassi letterale per la creazione di oggetti.
 
     ```javascript
     // errato
@@ -86,7 +86,7 @@
     var oggetto = {};
     ```
 
-  - Non usare [parole riservate](http://es5.github.io/#x7.6.1) come chiavi. Non funzionera su IE8. [Maggiori informazioni](https://github.com/airbnb/javascript/issues/61).
+  - Non usare [parole riservate](http://es5.github.io/#x7.6.1) come chiavi. Non funzionerà su IE8. [Maggiori informazioni](https://github.com/airbnb/javascript/issues/61).
 
     ```javascript
     // errato
@@ -107,17 +107,17 @@
     ```javascript
     // errato
     var superman = {
-      class: 'alien'
+      class: 'alieno'
     };
 
     // errato
     var superman = {
-      klass: 'alien'
+      klass: 'alieno'
     };
 
     // corretto
     var superman = {
-      type: 'alien'
+      type: 'alieno'
     };
     ```
 
@@ -129,10 +129,10 @@
 
     ```javascript
     // errato
-    var items = new Array();
+    var oggetti = new Array();
 
     // corretto
-    var items = [];
+    var oggetti = [];
     ```
 
   - Usa Array#push invece usare l'assegnamento diretto per aggiungere oggetti ad un array.
@@ -151,17 +151,17 @@
   - Quando devi copiare un array usa Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
 
     ```javascript
-    var len = items.length;
+    var len = oggetti.length;
     var itemsCopy = [];
     var i;
 
     // errato
     for (i = 0; i < len; i++) {
-      itemsCopy[i] = items[i];
+      itemsCopy[i] = oggetti[i];
     }
 
     // corretto
-    itemsCopy = items.slice();
+    itemsCopy = oggetti.slice();
     ```
 
   - Per convertire un oggetti simil-array, usa Array#slice.
@@ -178,82 +178,82 @@
 
 ## Stringhe
 
-  - Use single quotes `''` for strings.
+  - Usa singoli apici `''` per le stringhe.
 
     ```javascript
     // errato
-    var name = "Bob Parr";
+    var nome = "Bob Parr";
 
     // corretto
-    var name = 'Bob Parr';
+    var nome = 'Bob Parr';
 
     // errato
-    var fullName = "Bob " + this.lastName;
+    var nomeCompleto = "Bob " + this.cognome;
 
     // corretto
-    var fullName = 'Bob ' + this.lastName;
+    var nomeCompleto = 'Bob ' + this.cognome;
     ```
 
-  - Stringhe piu lunghe di 80 caratteri devo essere scritte su piu righe usando la concatenazione.
-  - Nota: Se usato troppo, stringhe lunghe con concatenazione possono intaccare la performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussione](https://github.com/airbnb/javascript/issues/40).
+  - Stringhe più lunghe di 80 caratteri devono essere scritte su più righe usando la concatenazione.
+  - Nota: Se usato troppo, stringhe lunghe con concatenazione possono intaccare la performance. [jsPerf](http://jsperf.com/ya-string-concat) e [Discussione](https://github.com/airbnb/javascript/issues/40).
 
     ```javascript
     // errato
-    var errorMessage = 'Questo e un errore molto lungo che e stato lanciato a causa di Batman. Quando smetti di pensare in che modo Batman abbia potuto avere a che fare con questo, non arriverai da nessuna parte.';
+    var errorMessage = 'Questo è un errore molto lungo che è stato lanciato a causa di Batman. Quando smetti di pensare al fatto che Batman abbia potuto avere a che fare con questo, non arriverai da nessuna parte.';
 
     // errato
     var errorMessage = 'Questo e un errore molto lungo che e stato lanciato a causa\
-        di Batman. Quando smetti di pensare in che modo Batman abbia potuto\
+        di Batman. Quando smetti di pensare al fatto che Batman abbia potuto\
         avere a che fare con questo, non arriverai da nessuna\
         parte.';
 
     // corretto
     var errorMessage = 'Questo e un errore molto lungo che e stato lanciato a causa ' +
-      'di Batman. Quando smetti di pensare in che modo Batman abbia potuto ' +
+      'di Batman. Quando smetti di pensare al fatto che Batman abbia potuto ' +
       'avere a che fare con questo, non arriverai da nessuna parte.';
     ```
 
   - Quando devi costruire una stringa programmaticamente, usa Array#join invece della concatenazione. Soprattutto per IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
 
     ```javascript
-    var items;
-    var messages;
-    var length;
+    var oggetti;
+    var messaggi;
+    var lunghezza;
     var i;
 
-    messages = [{
-      state: 'success',
-      message: 'This one worked.'
+    messaggi = [{
+      stato: 'successo',
+      messaggio: 'Questo ha funzionato.'
     }, {
-      state: 'success',
-      message: 'This one worked as well.'
+      stato: 'successo',
+      messaggio: 'Anche questo ha funzionato.'
     }, {
-      state: 'error',
-      message: 'This one did not work.'
+      stato: 'errore',
+      messaggio: 'Questo non ha funzionato.'
     }];
 
-    length = messages.length;
+    lunghezza = messaggi.length;
 
     // errato
-    function inbox(messages) {
-      items = '<ul>';
+    function inbox(messaggi) {
+      oggetti = '<ul>';
 
-      for (i = 0; i < length; i++) {
-        items += '<li>' + messages[i].message + '</li>';
+      for (i = 0; i < lunghezza; i++) {
+        oggetti += '<li>' + messaggi[i].messaggio + '</li>';
       }
 
-      return items + '</ul>';
+      return oggetti + '</ul>';
     }
 
     // corretto
-    function inbox(messages) {
-      items = [];
+    function inbox(messaggi) {
+      oggetti = [];
 
-      for (i = 0; i < length; i++) {
-        items[i] = '<li>' + messages[i].message + '</li>';
+      for (i = 0; i < lunghezza; i++) {
+        oggetti[i] = '<li>' + messaggi[i].messaggio + '</li>';
       }
 
-      return '<ul>' + items.join('') + '</ul>';
+      return '<ul>' + oggetti.join('') + '</ul>';
     }
     ```
 
@@ -265,53 +265,53 @@
   - Espressione delle funzioni:
 
     ```javascript
-    // anonymous function expression
-    var anonymous = function() {
+    // espressione di una funzione anonima
+    var anonima = function() {
       return true;
     };
 
-    // named function expression
-    var named = function named() {
+    // epressione di una funziona con nome
+    var conNome = function conNome() {
       return true;
     };
 
-    // immediately-invoked function expression (IIFE)
+    // espressione di funzioni invocate immediatamente (immediately-invoked function expression (IIFE))
     (function() {
-      console.log('Welcome to the Internet. Please follow me.');
+      console.log('Benvenuto in Internet. Perfavore, seguimi.');
     })();
     ```
 
-  - Non dichiarare mai una funziona in un blocco non-funzione (if, while, ecc). Invece, assegna la funzione ad una variabile. I browsers ti permetteranno di farlo, ma ciascuno lo interpretera diversamente, which is errato news bears.
-  - **Nota:** ECMA-262 definisce un `block` come una lista di statements. Una dichiarazione di una funzione non e' uno statement. [Leggi la nota di ECMA-262 su questa questione](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+  - Non dichiarare mai una funzione in un blocco non-funzione (if, while, ecc). Invece, assegna la funzione ad una variabile. I browsers ti permetteranno di farlo, ma ciascuno lo interpreterà diversamente.
+  - **Nota:** ECMA-262 definisce un `block` (blocco) come una lista di statements. Una dichiarazione di una funzione non è uno statement. [Leggi la nota di ECMA-262 su questa questione](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```javascript
     // errato
-    if (currentUser) {
+    if (utenteCorrente) {
       function test() {
-        console.log('Nope.');
+        console.log('No.');
       }
     }
 
     // corretto
     var test;
-    if (currentUser) {
+    if (utenteCorrente) {
       test = function test() {
-        console.log('Yup.');
+        console.log('Si.');
       };
     }
     ```
 
-  - Non nominare mai un parametro `arguments`. Questo avra la precedenza su l'oggetto `arguments` che viene dato in ogni scope di una funzione.
+  - Non nominare mai un parametro `arguments`. Questo avrà la precedenza sull'oggetto `arguments` che viene dato in ogni ambito di visibilità (scope) di una funzione.
 
     ```javascript
     // errato
-    function nope(name, options, arguments) {
-      // ...stuff...
+    function no(name, options, arguments) {
+      // ...codice...
     }
 
     // corretto
-    function yup(name, options, args) {
-      // ...stuff...
+    function si(name, options, args) {
+      // ...codice...
     }
     ```
 
@@ -319,9 +319,9 @@
 
 
 
-## Proprieta'
+## Proprietà
 
-  - Usa la notazione con punto per accedere alle proprieta'
+  - Usa la notazione puntata per accedere alle proprietà
 
     ```javascript
     var luke = {
@@ -336,7 +336,7 @@
     var isJedi = luke.jedi;
     ```
 
-  - Usa la notazione subscript `[]` per accedere a proprieta' con una variabile.
+  - Usa la notazione subscript `[]` per accedere a proprietà con una variabile.
 
     ```javascript
     var luke = {
@@ -360,52 +360,52 @@
 
     ```javascript
     // errato
-    superPower = new SuperPower();
+    superPotere = new SuperPotere();
 
     // corretto
-    var superPower = new SuperPower();
+    var superPotere = new SuperPotere();
     ```
 
   - Usa una dichiarazione `var` per ogni variabile.
-    E' piu' facile aggiungere dichiarazioni di variabili in questa maniera, e non dei mai
-    preoccuparti di scambiare una `;` con una `,` o intrudurre punctuation-only
-    diffs.
+    È più facile aggiungere dichiarazioni di variabili in questa maniera, e non devi mai
+    preoccuparti di scambiare una `;` con una `,` o intrudurre diffs
+    legate solamente alla punteggiatura.
 
     ```javascript
     // errato
-    var items = getItems(),
+    var oggetti = getItems(),
         goSportsTeam = true,
         dragonball = 'z';
 
     // errato
     // (confronta con quanto sopra e cerca di individuare lo sbaglio)
-    var items = getItems(),
+    var oggetti = getItems(),
         goSportsTeam = true;
         dragonball = 'z';
 
     // corretto
-    var items = getItems();
+    var oggetti = getItems();
     var goSportsTeam = true;
     var dragonball = 'z';
     ```
 
-  - Dichiara variabili unassigned per ultime. Questo e' vantaggioso quando in futuro avrai bisogno di assegnare una variabile rispetto ad una variabile assegnata in precedenza. 
+  - Dichiara variabili senza assegnamento per ultime. Questo è vantaggioso quando in futuro avrai bisogno di assegnare una variabile rispetto ad una variabile assegnata in precedenza. 
 
     ```javascript
     // errato
     var i, len, dragonball,
-        items = getItems(),
+        oggetti = getItems(),
         goSportsTeam = true;
 
     // errato
     var i;
-    var items = getItems();
+    var oggetti = getItems();
     var dragonball;
     var goSportsTeam = true;
     var len;
 
     // corretto
-    var items = getItems();
+    var oggetti = getItems();
     var goSportsTeam = true;
     var dragonball;
     var length;
@@ -420,7 +420,7 @@
       test();
       console.log('sto lavorando..');
 
-      //..other stuff..
+      //..altro codice..
 
       var name = getName();
 
@@ -438,7 +438,7 @@
       test();
       console.log('sto lavorando..');
 
-      //..other stuff..
+      //..altro codice..
 
       if (name === 'test') {
         return false;
@@ -475,7 +475,7 @@
 
 ## Hoisting
 
-  - Le dichiarazioni di variabili vengono sollevate in cima al loro scope, ma non il loro assegnamento.
+  - Le dichiarazioni di variabili vengono sollevate (hoisting) in cima al loro scope, ma non il loro assegnamento.
 
     ```javascript
     // sappiamo che questo non funziona (assumendo che
@@ -485,9 +485,9 @@
     }
 
     // creare una dichiarazione di variabile dopo che hai fatto
-    // riferimento alla variabile funzionera' a causa del
+    // riferimento alla variabile funzionerà a causa del
     // variable hoisting. Nota: l'assegnamento
-    // del valore `true` non e' hoisted.
+    // del valore `true` non è sollevato.
     function example() {
       console.log(declaredButNotAssigned); // => undefined
       var declaredButNotAssigned = true;
@@ -532,8 +532,8 @@
       };
     }
 
-    // lo stesso e' vero quando il nome della funzione
-    // e' lo stesso del nome della variabile.
+    // lo stesso è vero quando il nome della funzione
+    // è lo stesso del nome della variabile.
     function example() {
       console.log(named); // => undefined
 
@@ -557,32 +557,32 @@
     }
     ```
 
-  - Per maggiori informazioni vedi [JavaScript Scoping & Hoisting](http://www.adequatelycorretto.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelycorretto.com/).
+  - Per maggiori informazioni vedi [JavaScript Scoping & Hoisting](http://www.adequatelycorretto.com/2010/2/JavaScript-Scoping-and-Hoisting) di [Ben Cherry](http://www.adequatelycorretto.com/).
 
 **[⬆ torna in cima](#tavola-dei-contenuti)**
 
 
 
-## Comparison Operators & Equality
+## Operatori di Confronto ed Ugualianza
 
-  - Use `===` and `!==` over `==` and `!=`.
-  - Comparison operators are evaluated using coercion with the `ToBoolean` method and always follow these simple rules:
-
-    + **Objects** evaluate to **true**
-    + **Undefined** evaluates to **false**
-    + **Null** evaluates to **false**
-    + **Booleans** evaluate to **the value of the boolean**
-    + **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
-    + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
+  - Usa `===` e `!==` anzichè `==` e `!=`.
+  - Gli operatori di confronti vengono valutati usando la coercizione con il metodo `ToBoolean` e seguono sempre queste semplici regole:
+ 
+    + **Objects** valgono come **true**
+    + **Undefined** valgono come **false**
+    + **Null** valgono come **false**
+    + **Booleans** valgono come **il valore del booleano**
+    + **Numbers** valgono come **false** se **+0, -0, o NaN**, altrimenti **true**
+    + **Strings** valgono come **false** se è una stringa vuota `''`, altrimenti **true**
 
     ```javascript
     if ([0]) {
       // true
-      // An array is an object, objects evaluate to true
+      // Un array è un oggetto, gli oggetti valgono come true
     }
     ```
 
-  - Use shortcuts.
+  - Usa scorciatoie.
 
     ```javascript
     // errato
@@ -606,7 +606,7 @@
     }
     ```
 
-  - For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
+  - Per maggiori informazioni vedi [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) di Angus Croll.
 
 **[⬆ torna in cima](#tavola-dei-contenuti)**
 
@@ -727,7 +727,7 @@
     ```
 
   - Anteporre i tuoi commenti con `FIXME` o `TODO` aiuta altri sviluppatori a capire rapidamente se stai esponendo un problema che deve essere risolto,
-  o se stai suggerendo una soluzione al problema che deve essere implementato. Questi sono diversi da commenti normali perche' sono azionabili.
+  o se stai suggerendo una soluzione al problema che deve essere implementato. Questi sono diversi da commenti normali perchè sono azionabili.
   Le azioni sono `FIXME -- devo risolvere questo` o `TODO -- va implementato questo`.
 
   - Usa `// FIXME:` per annotare problemi.
@@ -863,14 +863,14 @@
     ```
 
   - Usa l'indentatura quando devi fare lunghe catene di metodi. Usa un punto iniziale, il quale
-  enfatizza il fatto che la linea e' una chiamata ad un metodo, e non un nuovo statement.
+  enfatizza il fatto che la linea è una chiamata ad un metodo, e non un nuovo statement.
 
     ```javascript
     // errato
-    $('#items').find('.selected').highlight().end().find('.open').updateCount();
+    $('#oggetti').find('.selected').highlight().end().find('.open').updateCount();
 
     // errato
-    $('#items').
+    $('#oggetti').
       find('.selected').
         highlight().
         end().
@@ -878,7 +878,7 @@
         updateCount();
 
     // corretto
-    $('#items')
+    $('#oggetti')
       .find('.selected')
         .highlight()
         .end()
@@ -978,9 +978,9 @@
     };
     ```
 
-  - Virgole successive addizionali: **No.** Questo puo' causare problemi con IE6/7 e IE9 se e' in quirksmode. Inoltre, in alcune implementazioni di ES3 viene aggiunta lunghezza ad un array se ci sono virgole successive addizionali. Questo e' stato chiarificato in ES5 ([source](http://es5.github.io/#D)):
+  - Virgole successive addizionali: **No.** Questo puo' causare problemi con IE6/7 e IE9 se è in modalita' stranezze. Inoltre, in alcune implementazioni di ES3 viene aggiunta lunghezza ad un array se ci sono virgole successive addizionali. Questo è stato chiarificato in ES5 ([source](http://es5.github.io/#D)):
 
-  > Edition 5 chiarifica il fatto che una virgola successiva in fondo ad un ArrayInitialiser non aggiunge nulla alla lunghezza dell'array. Questo non e' un cambiamento semantico dalla Edition 3 ma alcune implementazioni passate hanno potenzialmente frainteso cio'
+  > Edition 5 chiarifica il fatto che una virgola successiva in fondo ad un ArrayInitialiser non aggiunge nulla alla lunghezza dell'array. Questo non è un cambiamento semantico dalla Edition 3 ma alcune implementazioni passate hanno potenzialmente frainteso cio'
 
     ```javascript
     // errato
@@ -1011,7 +1011,7 @@
 
 ## Punti e virgole
 
-  - **Gia'.**
+  - **Già.**
 
     ```javascript
     // errato
@@ -1033,7 +1033,7 @@
     })();
     ```
 
-    [Per saperne di piu'](http://stackoverflow.com/a/7365214/1712802).
+    [Per saperne di più](http://stackoverflow.com/a/7365214/1712802).
 
 **[⬆ torna in cima](#tavola-dei-contenuti)**
 
@@ -1083,19 +1083,19 @@
     var val = parseInt(inputValue, 10);
     ```
 
-  - Se per qualsiasi ragione stai facendo qualcosa di strano e `parseInt` e' il tuo collo di bottiglia allora devi usare Bitshift per [motivi di performance](http://jsperf.com/coercion-vs-casting/3), lascia un commento spiegando come mai e cosa stai facendo.
+  - Se per qualsiasi ragione stai facendo qualcosa di strano e `parseInt` è il tuo collo di bottiglia allora devi usare Bitshift per [motivi di performance](http://jsperf.com/coercion-vs-casting/3), lascia un commento spiegando come mai e cosa stai facendo.
 
     ```javascript
     // corretto
     /**
-     * parseInt e' la ragione per la quale il mio codice era lento.
+     * parseInt è la ragione per la quale il mio codice era lento.
      * Effettuando Bitshifting alla String per forzarla a diventare un
-     * Number lo ha reso molto piu' veloce.
+     * Number lo ha reso molto più veloce.
      */
     var val = inputValue >> 0;
     ```
 
-  - **Nota:** Fai attenzione quando usi operazioni di bitshift. I Numbers sono rappresentati come [valori da 64-bit](http://es5.github.io/#x4.3.19), ma le operazioni di Bitshift ritornano sempre un intero da 32-bit ([source](http://es5.github.io/#x11.7)). Il Bitshift puo' portare a comportamenti anomali per valori interi piu' grandi di 32-bit. [Discussion](https://github.com/airbnb/javascript/issues/109). L'intero con segno a piu' grande e' 2,147,483,647:
+  - **Nota:** Fai attenzione quando usi operazioni di bitshift. I Numbers sono rappresentati come [valori da 64-bit](http://es5.github.io/#x4.3.19), ma le operazioni di Bitshift ritornano sempre un intero da 32-bit ([source](http://es5.github.io/#x11.7)). Il Bitshift puo' portare a comportamenti anomali per valori interi più grandi di 32-bit. [Discussion](https://github.com/airbnb/javascript/issues/109). L'intero con segno a più grande è 2,147,483,647:
 
     ```javascript
     2147483647 >> 0 //=> 2147483647
@@ -1178,7 +1178,7 @@
     });
     ```
 
-  - Usa un underscore `_` principale quando dai nomi a proprieta' private.
+  - Usa un underscore `_` principale quando dai nomi a proprietà private.
 
     ```javascript
     // errato
@@ -1217,7 +1217,7 @@
     }
     ```
 
-  - Dai un nome alle tue funzioni. Questo e' di aiuto per le stack traces.
+  - Dai un nome alle tue funzioni. Questo è di aiuto per le stack traces.
 
     ```javascript
     // errato
@@ -1230,7 +1230,7 @@
       console.log(msg);
     };
     ```
-  - **Nota:** Da IE8 in giu' si manifestano stranezze con espressioni di funzioni a cui e' stato dato un nome. vedi [http://kangax.github.io/nfe/](http://kangax.github.io/nfe/) per maggiori informazioni.
+  - **Nota:** Da IE8 in giù si manifestano stranezze con espressioni di funzioni a cui è stato dato un nome. vedi [http://kangax.github.io/nfe/](http://kangax.github.io/nfe/) per maggiori informazioni.
 
   - Se il tuo file esporta una singola classe, il nome del file dovrebbe essere esattamente quello del nome della classe.
 
@@ -1257,7 +1257,7 @@
 
 ## Accessors
 
-  - Funzioni accessor per proprieta' non sono richieste.
+  - Funzioni accessor per proprietà non sono richieste.
   - Se usi funzioni accessor usa getVal() e setVal('hello').
 
     ```javascript
@@ -1274,7 +1274,7 @@
     dragon.setAge(25);
     ```
 
-  - Se la proprieta' e' un booleano, usa isVal() o hasVal().
+  - Se la proprietà è un booleano, usa isVal() o hasVal().
 
     ```javascript
     // errato
@@ -1311,7 +1311,7 @@
 
 ## Costruttori
 
-  - Assegna metodi all'oggetto prototype, invece di sovrascrivere il prototipo con un nuovo oggetto. Sovrascrivere il prototipo rende l'ereditarieta'
+  - Assegna metodi all'oggetto prototype, invece di sovrascrivere il prototipo con un nuovo oggetto. Sovrascrivere il prototipo rende l'ereditarietà
   impossibile: resettando il prototipo sovrascriverai la base!
 
     ```javascript
@@ -1397,7 +1397,7 @@
 
 ## Eventi
 
-  - Quando alleghi data payloads ad eveti (non importa se eventi DOM o qualcosa di piu' prorietario come eventi Backbone), passa un hash invece di una valore semplice. Questo permette ad un collaboratore futuro di aggiungere piu' data al payload dell'evento senza trovare ed aggiornare ogni handler per l'evento. Ad esempio, invece di
+  - Quando alleghi data payloads ad eveti (non importa se eventi DOM o qualcosa di più prorietario come eventi Backbone), passa un hash invece di una valore semplice. Questo permette ad un collaboratore futuro di aggiungere più data al payload dell'evento senza trovare ed aggiornare ogni handler per l'evento. Ad esempio, invece di
 
     ```js
     // errato
@@ -1519,16 +1519,16 @@
 **[⬆ torna in cima](#tavola-dei-contenuti)**
 
 
-## Compatibilita' ECMAScript 5
+## Compatibilità ECMAScript 5
 
-  - Fai riferimento a [Kangax](https://twitter.com/kangax/)'s ES5 [tavola delle compatibilita'](http://kangax.github.com/es5-compat-table/).
+  - Fai riferimento a [Kangax](https://twitter.com/kangax/)'s ES5 [tavola delle compatibilità](http://kangax.github.com/es5-compat-table/).
 
 **[⬆ torna in cima](#tavola-dei-contenuti)**
 
 
 ## Testing
 
-  - **Gia'.**
+  - **Già.**
 
     ```javascript
     function() {
@@ -1628,9 +1628,9 @@
 
 **[⬆ torna in cima](#tavola-dei-contenuti)**
 
-## In Piena Liberta'
+## In Piena Libertà
 
-  Questa e' una lista di organizzazioni che fanno uso di questa guida allo stile. Mandaci una pull request o apri una issue e ti aggiungeremo alla lista.
+  Questa è una lista di organizzazioni che fanno uso di questa guida allo stile. Mandaci una pull request o apri una issue e ti aggiungeremo alla lista.
 
   - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
   - **Adult Swim**: [adult-swim/javascript](https://github.com/adult-swim/javascript)
@@ -1681,7 +1681,7 @@
 
 ## Traduzioni
 
-  Questa guida allo stile e' disponibile anche in altre lingue:
+  Questa guida allo stile è disponibile anche in altre lingue:
 
   - ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Brazilian Portuguese**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
   - ![bg](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Bulgaria.png) **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
