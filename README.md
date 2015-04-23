@@ -21,7 +21,7 @@
   1. [Spazi bianchi](#spazi-bianchi)
   1. [Virgole](#virgole)
   1. [Punti e Virgole](#punti-e-virgole)
-  1. [Conversioni di Tipo e Coercizioni](#conversioni-di-tipo-e-coercizioni)
+  1. [Conversioni di Tipo e Coercizione](#conversioni-di-tipo-e-coercizione)
   1. [Convenzioni sui Nomi](#convenzioni-sui-nomi)
   1. [Accessors](#accessors)
   1. [Costruttori](#costruttori)
