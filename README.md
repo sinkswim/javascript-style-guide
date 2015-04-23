@@ -34,8 +34,8 @@
   1. [Risorse](#risorse)
   1. [In Piena Libertà](#in-piena-libertà)
   1. [Traduzioni](#traduzioni)
-  1. [Guida allo Stile di Javascript](#guida-allo-stile-di-javascript)
-  1. [Parlaci di Javascript](#parlaci-di-javascript)
+  1. [Guida sulla Guida allo Stile di Javascript](#guida-sulla-guida-allo-stile-di-javascript)
+  1. [Chatta con Noi di Javascript](#chatta-con-noi-di-javascript)
   1. [Collaboratori](#collaboratori)
   1. [Licensa](#licensa)
 
@@ -1038,7 +1038,7 @@
 **[⬆ torna in cima](#tavola-dei-contenuti)**
 
 
-## Conversione di Tipo e Coercizione
+## Conversioni di Tipo e Coercizione
 
   - Effettua la coercizione di tipo all'inizio di uno statement.
   - Strings:
@@ -1698,7 +1698,7 @@
   - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Spagnolo**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
   - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Tailandese**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide)
 
-## The JavaScript Style Guide Guide
+## Guida sulla Guida allo Stile di Javascript
 
   - [Riferimento](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
