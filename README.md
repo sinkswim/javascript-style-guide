@@ -148,7 +148,7 @@
     someStack.push('abracadabra');
     ```
 
-  - Quando devi copiare un array usa Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
+  - Quando devi copiare un array usa Array#slice.
 
     ```javascript
     var len = oggetti.length;
@@ -195,7 +195,7 @@
     ```
 
   - Stringhe più lunghe di 80 caratteri devono essere scritte su più righe usando la concatenazione.
-  - Nota: Se usato troppo, stringhe lunghe con concatenazione possono intaccare la performance. [jsPerf](http://jsperf.com/ya-string-concat) e [Discussione](https://github.com/airbnb/javascript/issues/40).
+  - Nota: Se usato troppo, stringhe lunghe con concatenazione possono intaccare la performance. [Discussione](https://github.com/airbnb/javascript/issues/40).
 
     ```javascript
     // errato
@@ -213,7 +213,7 @@
       'avere a che fare con questo, non arriverai da nessuna parte.';
     ```
 
-  - Quando devi costruire una stringa programmaticamente, usa Array#join invece della concatenazione. Soprattutto per IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
+  - Quando devi costruire una stringa programmaticamente, usa Array#join invece della concatenazione.
 
     ```javascript
     var oggetti;
@@ -1083,7 +1083,7 @@
     var val = parseInt(inputValue, 10);
     ```
 
-  - Se per qualsiasi ragione stai facendo qualcosa di strano e `parseInt` è il tuo collo di bottiglia allora devi usare Bitshift per [motivi di performance](http://jsperf.com/coercion-vs-casting/3), lascia un commento spiegando come mai e cosa stai facendo.
+  - Se per qualsiasi ragione stai facendo qualcosa di strano e `parseInt` è il tuo collo di bottiglia allora devi usare Bitshift per motivi di performance, lascia un commento spiegando come mai e cosa stai facendo.
 
     ```javascript
     // corretto
@@ -1496,7 +1496,7 @@
     }
     ```
 
-  - Per query del DOM usa a cascata `$('.sidebar ul')` o parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - Per query del DOM usa a cascata `$('.sidebar ul')` o parent > child `$('.sidebar > ul')`.
   - Usa `find` con scoped query di oggetti jQuery.
 
     ```javascript
@@ -1542,12 +1542,6 @@
 ## Performance
 
   - [On Layout & Web Performance](http://kellegous.com/j/2013/01/26/layout-performance/)
-  - [String vs Array Concat](http://jsperf.com/string-vs-array-concat/2)
-  - [Try/Catch Cost In a Loop](http://jsperf.com/try-catch-in-loop-cost)
-  - [Bang Function](http://jsperf.com/bang-function)
-  - [jQuery Find vs Context, Selector](http://jsperf.com/jquery-find-vs-context-sel/13)
-  - [innerHTML vs textContent for script text](http://jsperf.com/innerhtml-vs-textcontent-for-script-text)
-  - [Long String Concatenation](http://jsperf.com/ya-string-concat)
   - Caricamento...
 
 **[⬆ torna in cima](#tavola-dei-contenuti)**
