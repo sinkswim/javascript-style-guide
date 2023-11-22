@@ -1583,7 +1583,7 @@
 
 **Libri**
 
-  - [JavaScript: The corretto Parts](http://www.amazon.com/JavaScript-corretto-Parts-Douglas-Crockford/dp/0596517742) - Douglas Crockford
+  - [JavaScript: The Good Parts](http://www.amazon.com/JavaScript-corretto-Parts-Douglas-Crockford/dp/0596517742) - Douglas Crockford
   - [JavaScript Patterns](http://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752) - Stoyan Stefanov
   - [Pro JavaScript Design Patterns](http://www.amazon.com/JavaScript-Design-Patterns-Recipes-Problem-Solution/dp/159059908X)  - Ross Harmes and Dustin Diaz
   - [High Performance Web Sites: Essential Knowledge for Front-End Engineers](http://www.amazon.com/High-Performance-Web-Sites-Essential/dp/0596529309) - Steve Souders
